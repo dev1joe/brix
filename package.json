@@ -1,0 +1,44 @@
+{
+  "name": "hivebox",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/dev1joe/devops-project-hivebox#readme",
+  "bugs": {
+    "url": "https://github.com/dev1joe/devops-project-hivebox/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev1joe/devops-project-hivebox.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "morgan": "^1.12.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.4"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
