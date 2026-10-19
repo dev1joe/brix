@@ -35,3 +35,41 @@ tsconfig
 
 ## testing
 - run `npm run test`
+
+# Learning notes
+### Phase 1: API App & Dockerization
+##### API
+- built a simple API using Express.js
+
+##### multi-stage dockerfiles
+
+### Phase 2: Continuous Integration (CI)
+##### Unit testing & linting
+- learned how to create unit tests using vitest and supertest
+- explored multiple linting tools and fixed linting problems
+
+##### GitHub Actions
+- wrote my first GitHub Workflow
+- learned that a workflow consists of jobs and each job can have multiple steps
+
+### Phase 3: Expanding
+##### Integration Testing
+- learned that integration tests can be between my API and a Database, message queue, or another API
+- in this case, my API uses the OpenSenseMap (OSEM) API
+- so I should test how my API behaves given different behaviors from OSEM API
+- used [Mock Service Worker (msw)](https://mswjs.io/) to mock OSEM API
+- wrote integration tests using vitest and supertest
+- wrote a smoke test: which tests my application behavior with the real OSEM API not a mocked one
+
+##### Kubernetes
+- text
+
+##### CI expantion
+- text
+
+##### Continuous Deployment (CD)
+- text
+
+
+# ScratchPad
+feat: added premetheus metrics; temperature API update, integration test, and dedicated smoke test

@@ -45,3 +45,13 @@ export async function getAvgTemp(sensors: Sensor[]): Promise<number> {
   const avg = values.reduce((a, b) => a + b, 0) / values.length;
   return Number(avg.toFixed(2));
 }
+
+export function getTempStatus(temp: number) {
+  if (temp < 10) {
+    return "Too Cold";
+  } else if (temp < 36) {
+    return "Good";
+  } else {
+    return "Too Hot";
+  }
+}

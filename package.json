@@ -17,7 +17,9 @@
     "typecheck": "tsc --noEmit",
     "start": "node dist/index.js",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run --exclude \"**/*.smoke.test.ts\"",
+    "test:integration": "vitest run integration",
+    "test:smoke": "vitest run smoke"
   },
   "dependencies": {
     "express": "^5.3.0",

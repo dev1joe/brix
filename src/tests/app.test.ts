@@ -1,33 +1,26 @@
 import { describe, expect, it } from "vitest";
 import request from "supertest";
-import { app } from "./app"
+import { app } from "../app"
 
-describe("GET /", () => {
+describe("GET /api", () => {
   it("return ok", async () => {
     const res = await request(app).get("/api");
     expect(res.status).toBe(200);
   });
 });
 
-describe("GET /info", () => {
+describe("GET /api/info", () => {
   it("return ok", async () => {
     const res = await request(app).get("/api/info");
     expect(res.status).toBe(200);
   });
 });
 
-describe("GET /version", () => {
+describe("GET /api/version", () => {
   it("return ok", async () => {
     const res = await request(app).get("/api/version");
     expect(res.status).toBe(200);
   });
-});
-
-describe("GET /temperature", () => {
-  it("return ok", async () => {
-    const res = await request(app).get("/api/temperature");
-    expect(res.status).toBe(200);
-  })
 });
 
 describe("GET /nobe", () => {
