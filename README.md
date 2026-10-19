@@ -12,7 +12,7 @@ npx tsc --init
 
 testing libraries
 ```bash
-npm i -D vitest supertest @types/supertest
+npm i -D vitest supertest @types/supertest msw
 ```
 
 installing mogan middleware for request logging
