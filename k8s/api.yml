@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment # what kind of Kubernetes object is this?
+metadata: # deployment metadata
+  name: api-deployment
+  labels:
+    app: api
+spec: # Deployment Specifications (a description of the desired state)
+  replicas: 1
+  selector: # giving the deployment a way to know it's own pods
+    matchLabels:
+      app: api # all the pods that "match this label" belong to this deployment
+  template: # Pods configuration
+    metadata:
+      labels:
+        app: api
+    spec: # pods specification (blueprint to follow)
+      containers:
+        - name: api-app
+          image: brix:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1 # services are in the code api group, so you only use `v1`
+kind: Service
+metadata:
+  name: api-service
+spec:
+  # by default this service is "internal"
+  # type: clusterIp # (default)
+  selector: # defines which pod to forward requests to
+    app: api
+  ports: # request -> service -> pod
+    - protocol: TCP
+      port: 3000 # service's port (prefarrably the same port as the pod)
+      targetPort: 3000 # pod's port

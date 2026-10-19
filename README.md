@@ -62,7 +62,16 @@ tsconfig
 - wrote a smoke test: which tests my application behavior with the real OSEM API not a mocked one
 
 ##### Kubernetes
-- text
+- installed kind
+- created an ingress-ready configuration with 80/443 ports mapped
+- apply Ingress-Nignx using `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
+- wait until the controller is ready using this command:
+```bash
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+```
 
 ##### CI expantion
 - text
@@ -72,4 +81,4 @@ tsconfig
 
 
 # ScratchPad
-feat: added premetheus metrics; temperature API update, integration test, and dedicated smoke test
+updated CI to run on develop branch push; feat: KIND config and k8s core manifests
