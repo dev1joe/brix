@@ -77,10 +77,11 @@ kubectl wait --namespace ingress-nginx \
 ##### CI expantion
 - text
 - read [Best practices when adopting continuous integration](https://github.com/resources/articles/continuous-integration#best-practices-when-adopting-continuous-integration)
+- read [GitHub actions secure use](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions) to know how to use third-party actions securely
 
 ##### Continuous Deployment (CD)
 - text
 
 
 # ScratchPad
-updates to main CI workflow; feat: added more CI workflows: code verification using SonarQube and IaC scanning using trivy; added a CD workflow
+fix: used full commit SHA for docker and trivy third-party actions
