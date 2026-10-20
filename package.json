@@ -1,5 +1,5 @@
 {
-  "name": "brix",
+  "name": "Brix",
   "version": "0.1.0",
   "description": "",
   "homepage": "https://github.com/dev1joe/brix#readme",
@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit",
     "start": "node dist/index.js",
     "lint": "eslint .",
-    "test": "vitest run --exclude \"**/*.smoke.test.ts\"",
+    "test": "vitest run",
     "test:integration": "vitest run integration",
     "test:smoke": "vitest run smoke"
   },
@@ -32,6 +32,7 @@
     "@types/morgan": "^1.9.10",
     "@types/node": "^26.6.5",
     "@types/supertest": "^7.2.1",
+    "@vitest/coverage-v8": "^5.0.4",
     "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
     "globals": "^17.13.0",

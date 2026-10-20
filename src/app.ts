@@ -10,12 +10,12 @@ const app = express();
 const ApiRouter = express.Router();
 
 ApiRouter.get("/", (_req: Request, res: Response) => {
-  res.json({ "message": "Hello to Brix" });
+  res.json({ "message": `Hello to ${pkg.name ?? "Brix"}` });
 });
 
 ApiRouter.get("/info", (_req: Request, res: Response) => {
   res.json({
-    "app_name": config.appName,
+    "app_name": pkg.name ?? "Brix",
     "version": pkg.version,
     "environment": config.env,
   });
