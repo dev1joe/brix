@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24 #  match your Dockerfile's base image
           cache: npm # caches ~/.npm keyed on package-lock.json
@@ -38,24 +38,24 @@ jobs:
           dockerfile: Dockerfile
 
       # 3.4: build the image
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/build-push-action@v6
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/build-push-action@v7
         with:
           context: .
           push: false
           load: true # makes the image available to `docker run` below
-          tags: hivebox:ci
+          tags: brix:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       # 3.5: run it and check /version
       - name: Run container
-        run: docker run -d --name hivebox -p 3000:3000 hivebox:ci
+        run: docker run -d --name brix -p 3000:3000 brix:ci
 
       - name: Wait for healthy container
         run: |
           for i in $(seq 1 30); do
-            status="$(docker inspect --format '{{.State.Health.Status}}' hivebox)"
+            status="$(docker inspect --format '{{.State.Health.Status}}' brix)"
             echo "attempt $i: $status"
             [ "$status" = "healthy" ] && exit 0
             [ "$status" = "unhealthy" ] && break
@@ -81,6 +81,6 @@ jobs:
         run: |
           docker ps -a
           echo "--- logs ---"
-          docker logs hivebox
+          docker logs brix
           echo "--- probe ---"
-          curl -v http://localhost:3000/api/version || true       run: docker logs hivebox
+          curl -v http://localhost:3000/api/version || true       run: docker logs brix

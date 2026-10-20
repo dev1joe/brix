@@ -48,9 +48,10 @@ tsconfig
 - learned how to create unit tests using vitest and supertest
 - explored multiple linting tools and fixed linting problems
 
-##### GitHub Actions
+##### CI & GitHub Actions
 - wrote my first GitHub Workflow
 - learned that a workflow consists of jobs and each job can have multiple steps
+- read [what is continuous integration | Atlassian](https://www.atlassian.com/continuous-delivery/continuous-integration)
 
 ### Phase 3: Expanding
 ##### Integration Testing
@@ -75,10 +76,11 @@ kubectl wait --namespace ingress-nginx \
 
 ##### CI expantion
 - text
+- read [Best practices when adopting continuous integration](https://github.com/resources/articles/continuous-integration#best-practices-when-adopting-continuous-integration)
 
 ##### Continuous Deployment (CD)
 - text
 
 
 # ScratchPad
-updated CI to run on develop branch push; feat: KIND config and k8s core manifests
+updates to main CI workflow; feat: added more CI workflows: code verification using SonarQube and IaC scanning using trivy; added a CD workflow
