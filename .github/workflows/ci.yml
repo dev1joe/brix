@@ -97,4 +97,4 @@ jobs:
           echo "--- logs ---"
           docker logs brix
           echo "--- probe ---"
-          curl -v http://localhost:3000/api/version || true       run: docker logs brix
+          curl -v http://localhost:3000/api/version || true
