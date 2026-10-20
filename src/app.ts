@@ -10,7 +10,7 @@ const app = express();
 const ApiRouter = express.Router();
 
 ApiRouter.get("/", (_req: Request, res: Response) => {
-  res.json({ "message": "Hello to Hivebox" });
+  res.json({ "message": "Hello to Brix" });
 });
 
 ApiRouter.get("/info", (_req: Request, res: Response) => {

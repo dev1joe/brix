@@ -1,5 +1,5 @@
-# Clickbox: Hands-On DevOps Project
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/dev1joe/clickbox/badge)](https://scorecard.dev/viewer/?uri=github.com/dev1joe/clickbox)
+# Brix: Hands-On DevOps Project
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/dev1joe/brix/badge)](https://scorecard.dev/viewer/?uri=github.com/dev1joe/brix)
 
 ## Implementation
 ### Project Initialization
