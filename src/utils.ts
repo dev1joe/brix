@@ -35,7 +35,7 @@ export async function getAvgTemp(sensors: Sensor[]): Promise<number> {
   const values: number[] = [];
   for (const r of results) {
     if (r.status === "fulfilled") values.push(r.value);
-    else console.warn(r.reason);
+    // else console.warn(r.reason);
   }
 
   if (values.length === 0) {

@@ -1,21 +1,23 @@
-import express, { type NextFunction, type Request, type Response } from "express";
+import express, { type Request, type Response } from "express";
 import morgan from "morgan";
 import { config } from "./config";
-import { getAvgTemp, getTempStatus, HttpError } from "./utils";
+import { getAvgTemp, getTempStatus } from "./utils";
 import { OSEMTempSensors } from "./data";
 import pkg from "../package.json" with { type: 'json' }
 import * as client from "@prometheus-io/client";
+import { errorHandler } from "./middleware/errorHandler"
 
 const app = express();
+app.disable("X-powered-by");
 const ApiRouter = express.Router();
 
 ApiRouter.get("/", (_req: Request, res: Response) => {
-  res.json({ "message": `Hello to ${pkg.name ?? "Brix"}` });
+  res.json({ "message": `Hello to ${pkg.name}` });
 });
 
 ApiRouter.get("/info", (_req: Request, res: Response) => {
   res.json({
-    "app_name": pkg.name ?? "Brix",
+    "app_name": pkg.name,
     "version": pkg.version,
     "environment": config.env,
   });
@@ -50,13 +52,6 @@ app.use((_req: Request, res: Response) => {
 });
 
 // Error-Handler must be last, and must have all 4 params
-app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
-  console.error(err);
-  if (res.headersSent) return next(err);
-
-  const status = err instanceof HttpError ? err.status : 500;
-  const message = err instanceof HttpError ? err.message : "Internal server error";
-  res.status(status).json({ error: message });
-});
+app.use(errorHandler);
 
 export { app };

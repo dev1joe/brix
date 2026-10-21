@@ -1,8 +1,16 @@
-import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { http, HttpResponse, passthrough } from "msw";
 import { setupServer } from "msw/node";
 import request from "supertest";
 import { app } from "../app.ts";
+
+beforeEach(() => {
+  vi.spyOn(console, "error").mockImplementation(() => { });
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 // passthrough any requests from localhost
 const server = setupServer(

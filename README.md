@@ -75,12 +75,13 @@ kubectl wait --namespace ingress-nginx \
 ```
 
 ##### CI expantion
-- text
 - read [Best practices when adopting continuous integration](https://github.com/resources/articles/continuous-integration#best-practices-when-adopting-continuous-integration)
 - read [GitHub actions secure use](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions) to know how to use third-party actions securely
+- learned about CI/CD pipeline security measurements
+- learned about code coverage, SonarQube, and static code verification
 
 ##### Continuous Deployment (CD)
-- text
+- learned about container registries
 
 
 # ScratchPad
