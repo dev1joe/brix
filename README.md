@@ -79,6 +79,7 @@ kubectl wait --namespace ingress-nginx \
 - read [GitHub actions secure use](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions) to know how to use third-party actions securely
 - learned about CI/CD pipeline security measurements
 - learned about code coverage, SonarQube, and static code verification
+- learned not to use npx in CI pipeline and replace it with npm scripts for security reasons
 
 ##### Continuous Deployment (CD)
 - learned about container registries
