@@ -24,7 +24,7 @@ jobs:
 
       - run: npm ci # exact install from lockfile
       - run: npm run lint
-      - run: npx vitest run --coverage
+      - run: npm run test:coverage
 
       - name: Cache SonarQube packages
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
